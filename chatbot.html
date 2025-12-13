@@ -22,11 +22,11 @@
     }
 
 
-    function ChatMessage(props){
+    function ChatMessage({message,sender}){
       //const message= props.message;
       //const sender=props.sender;
-      const {message, sender} =props
-
+      //const {message, sender} =props
+       /*
       if (sender==='robot'){
            return(
            <div>
@@ -35,28 +35,52 @@
             </div>
            );
       }
-
+        */
       return(
         <div>
+          {sender==='robot' &&  <img src="robot.png" width="50" /> }
           {message}
-          <img src="user.png" width="50" />
+          {sender==='user' && <img src="user.png" width="50" />}
         </div>
       );
     }
 
+       function App(){
+        
+        const chatMessages =[{
+           message:'hello chatbot',
+           sender:'user'
+        },{
+           message:'Hello! How can I help you?',
+           sender:'robot'
+        },{
+           message:'can you get me todays date',
+           sender:'user'
+        },{
+           message:'Today is December 12',
+           sender:'robot'
+        }];
+        
+        const chatMessageComponent= chatMessages.map(()=>{
+           return(
+            <ChatMessage
+            message={chatMessages.message}
+            sender={chatMessages.sender}
+            
+            />
+           );
+         });
 
-       const app =(
-       <>
-          <ChatInput />
-          <ChatMessage message="hello chatbot" sender="user" />
-          <ChatMessage message="Hello! How can I help you?"  sender="robot" />
-          <ChatMessage message="can you get me todays date" sender="user" />
-          <ChatMessage message="Today is December 12" sender ="robot" />
-        </>
-    );
+        return(
+         <>
+           <ChatInput />
+           {chatMessageComponent}
+          </>
+        );
+       }
 
       const container = document.querySelector('.js-container');
-      ReactDOM.createRoot(container).render(app);
+      ReactDOM.createRoot(container).render(<App />);
     </script>
   </body>
 </html>
