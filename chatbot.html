@@ -46,7 +46,7 @@
     }
     
     function ChatMessages(){
-
+        
         const chatMessages =[{
            message:'hello chatbot',
            sender:'user',
@@ -65,8 +65,15 @@
            id:'id4'
         }];
        
+       function sendMessage(){
+        console.log('send mesage')
+       }
+
         return(
           <>
+            
+          <button onClick={sendMessage}> Send Message</button>
+
              {chatMessages.map((chatMessage)=>{
               return(
                 <ChatMessage
