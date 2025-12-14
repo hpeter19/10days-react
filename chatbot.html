@@ -60,16 +60,15 @@
            message:'Today is December 12',
            sender:'robot'
         }];
-        
-        const chatMessageComponent= chatMessages.map(()=>{
-           return(
+
+        const chatMessageComponent= chatMessages.map((chatMessage)=>{
+          return(
             <ChatMessage
-            message={chatMessages.message}
-            sender={chatMessages.sender}
-            
+              message={chatMessage.message}
+              sender={chatMessage.sender}
             />
-           );
-         });
+          );
+        })
 
         return(
          <>
