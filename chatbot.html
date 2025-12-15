@@ -16,7 +16,7 @@
       const [inputText,setInputText]=React.useState('');
 
       function saveInputText(event){
-         saveInputText(event.target.value)
+         setInputText(event.target.value)
       }
 
       function sendMessage(){
@@ -24,7 +24,7 @@
          setChatMessages([
           ...chatMessages,
           {
-              message:'test',
+              message: inputText,
               sender:'user',
               id:crypto.randomUUID()
           }
