@@ -29,12 +29,15 @@
               id:crypto.randomUUID()
           }
          ]);
+
+         setInputText('');
       } 
 
         return(
           <>
             <input placeholder="send message to chatbot" size="30" 
             onChange={saveInputText}
+            value={inputText}
             />
             <button
             onClick={sendMessage}
