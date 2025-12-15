@@ -63,8 +63,9 @@
            sender:'robot',
            id:'id4'
         }]);
-        const chatMessages=array[0];
-       const setChatMessages=array[1];
+        const [chatMessages, setChatMessages]=array;
+       // const chatMessages=array[0];
+       //const setChatMessages=array[1];
 
         function sendMessage(){
          setChatMessages([
