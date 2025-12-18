@@ -17,6 +17,15 @@
         border-radius: 10px;
         border-width: 1px;
         font-size: 12px;
+        flex-grow: 1;
+      }
+      .chat-input-container{
+        display: flex;
+      }
+      .app-container{
+        max-width: 600px;
+        margin-right: auto;
+        margin-left: auto;
       }
      </style>
   </head>
@@ -62,7 +71,7 @@
       } 
 
         return(
-          <>
+          <div className="chat-input-container">
             <input placeholder="send message to chatbot" size="30" 
             onChange={saveInputText}
             value={inputText}
@@ -72,7 +81,7 @@
             onClick={sendMessage}
             className="send-button"
             >Send</button>
-          </>
+          </div>
         );
     }
 
@@ -141,7 +150,7 @@
 
 
         return(
-         <>
+         <div className="app-container">
            <ChatInput
            chatMessages={chatMessages}
            setChatMessages={setChatMessages}
@@ -149,7 +158,7 @@
            <ChatMessages
             chatMessages={chatMessages}
            />
-          </>
+          </div>
         );
        }
 
