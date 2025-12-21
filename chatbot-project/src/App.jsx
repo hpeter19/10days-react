@@ -1,81 +1,10 @@
 import { useState,useRef,useEffect } from 'react'
-import {Chatbot} from 'supersimpledev';
-import RobotProfileImage from './assets/robot.png';
-import UserProfileImage from './assets/user.png';
+import { ChatInput } from './Components/ChatInput';
+import { ChatMessage } from './Components/ChatMessage';
 import './App.css'
 
- function ChatInput({chatMessages,setChatMessages}){
-      const [inputText,setInputText]=useState('');
-
-      function saveInputText(event){
-         setInputText(event.target.value)
-      }
-
-      function sendMessage(){
-        const newChatMessages=[
-          ...chatMessages,
-          {
-              message: inputText,
-              sender:'user',
-              id:crypto.randomUUID()
-          }
-         ];
-         setChatMessages(newChatMessages);
-         
-         const response =Chatbot.getResponse(inputText);
-         setChatMessages([
-          ...newChatMessages,
-          {
-              message: response,
-              sender:'robot',
-              id:crypto.randomUUID()
-          }
-         ]);
-
-         setInputText('');
-      } 
-
-        return(
-          <div className="chat-input-container">
-            <input placeholder="send message to chatbot" size="30" 
-            onChange={saveInputText}
-            value={inputText}
-            className="chat-input"
-            />
-            <button
-            onClick={sendMessage}
-            className="send-button"
-            >Send</button>
-          </div>
-        );
-    }
 
 
-    function ChatMessage({message,sender}){
-      //const message= props.message;
-      //const sender=props.sender;
-      //const {message, sender} =props
-       /*
-      if (sender==='robot'){
-           return(
-           <div>
-              <img src="robot.png" width="50" />
-              {message}
-            </div>
-           );
-      }
-        */
-      return(
-        <div className={sender=== 'user'? 'chat-message-user' : 'chat-message-operator'}>
-          {sender==='robot' &&  <img src={RobotProfileImage} className="chat-message-profile" /> }
-          <div className="chat-message-text">
-           {message}
-          </div>
-          {sender==='user' && <img src={UserProfileImage} className="chat-message-profile" />}
-        </div>
-      );
-    }
-    
     function ChatMessages({chatMessages}){
       const chatMessagesRef= useRef(null);
 
