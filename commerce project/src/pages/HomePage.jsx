@@ -1,11 +1,11 @@
-import { Header } from '../components/Headers';
+import { Header } from '../components/Header';
 import './HomePage.css';
 export function HomePage(){
     return(
     <>
-      <Header />
+      <Header/>
 
-      <title>Ecommerce project</title>
+        <title>Ecommerce project</title>
         <div className="home-page">
         <div className="products-grid">
             <div className="product-container">
