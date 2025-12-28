@@ -1,6 +1,6 @@
 import './header.css';
 import './TrackingPage.css';
-export function TrackingPackage() {
+export function TrackingPage() {
   return (
     <>
       <div className="header">
