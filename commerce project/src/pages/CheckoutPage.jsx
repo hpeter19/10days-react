@@ -47,10 +47,16 @@ export function CheckoutPage({ cart }) {
         <div className="checkout-grid">
           <div className="order-summary">
             {cart.map((cartItem) => {
+                const selectedDeliveryOption=deliveryOptions
+                  .find((deliveryOption)=>{
+                   return deliveryOption.id === cartItem.deliveryOptionId
+                })
+
               return (
                 <div key={cartItem.productId} className="cart-item-container">
                   <div className="delivery-date">
-                    Delivery date: Tuesday, June 21
+                    Delivery date:{dayjs(selectedDeliveryOption
+                    .estimatedDeliveryTimeMs).format('dddd, MMMM D')}
                   </div>
 
                   <div className="cart-item-details-grid">
@@ -99,7 +105,7 @@ export function CheckoutPage({ cart }) {
                               type="radio"
                               checked={deliveryOption.id === cartItem.deliveryOptionId}
                               className="delivery-option-input"
-                              name={`delivery-option-{cartItem.productId}`}
+                              name={`delivery-option-${cartItem.productId}`}
                             />
                             <div>
                               <div className="delivery-option-date">
