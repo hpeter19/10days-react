@@ -12,6 +12,11 @@ export function Product({product,loadCart}) {
           });
           await loadCart();
         };
+    
+    const selectQuantity= (event) => {
+            const quantitySelected = Number(event.target.value);
+            setQuantity(quantitySelected);
+          };
 
   return (
     <div className="product-container">
@@ -36,10 +41,7 @@ export function Product({product,loadCart}) {
       <div className="product-quantity-container">
         <select
           value={quantity}
-          onChange={(event) => {
-            const quantitySelected = Number(event.target.value);
-            setQuantity(quantitySelected);
-          }}
+          onChange={selectQuantity}
         >
           <option value="1">1</option>
           <option value="2">2</option>
