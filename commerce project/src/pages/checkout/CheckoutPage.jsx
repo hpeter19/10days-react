@@ -17,7 +17,7 @@ export function CheckoutPage({ cart , loadCart}) {
       SetPaymentSummary(response.data);
     }
     fetchCheckoutData();
-  }, []);
+  }, [cart]);
 
   return (
     <>
